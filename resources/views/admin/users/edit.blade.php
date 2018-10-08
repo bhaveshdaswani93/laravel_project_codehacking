@@ -2,6 +2,7 @@
 @section('content')
     <h1>Edit User</h1>
     <div class="row">
+
             <div class="col-sm-3">
                     <img src="{{$user->photo?$user->photo->file:'https://via.placeholder.com/400x400'}}" class="img-responsive img-rounded" alt="">
                 </div>
@@ -32,9 +33,17 @@
                             {!! Form::password('password',['class'=>'form-control']) !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::submit('Edit User',['class'=>'btn btn-info']) !!}
+                            {!! Form::submit('Edit User',['class'=>'btn btn-info col-sm-6 ']) !!}
                         </div>
+                        {!! Form::close() !!}
+                        {!! Form::open(['method'=>'DELETE','action'=>['AdminUsersController@destroy',$user->id]]) !!}
+               
+                    <div class="form-group">
+                            {!! Form::submit('Delete User',['class'=>'btn btn-danger col-sm-6']) !!}  
+                    </div>
+                 {!! Form::close() !!}
                 </div>
+                
     </div>
     
     <div class="row">
