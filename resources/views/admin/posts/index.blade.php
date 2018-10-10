@@ -20,7 +20,7 @@
                     <tr>
                         <td>{{$post->id}}</td>
                         <td>{{$post->user->name}}</td>
-                        <td>{{$post->category_id}}</td>
+                        <td>{{$post->category?$post->category->name:"Uncategorizes post"}}</td>
                         <td><img height="100" src="{{$post->photo?$post->photo->file:"https://via.placeholder.com/400x400"}}" alt=""></td>
                         <td>{{$post->title}}</td>
                         <td>{{$post->body}}</td>
