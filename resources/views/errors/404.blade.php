@@ -1,1 +1,4 @@
-<h1>Custom 404 Page</h1>
+@extends('layouts.app')
+@section('content')
+<h1 class="text-center">Oops the requested page is not fpund</h1>
+@endsection

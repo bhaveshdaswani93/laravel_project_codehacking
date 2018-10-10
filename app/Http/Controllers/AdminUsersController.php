@@ -16,6 +16,7 @@ use App\Photo;
 
 use \Illuminate\Support\Facades\Session;
 
+
 class AdminUsersController extends Controller
 {
     /**
