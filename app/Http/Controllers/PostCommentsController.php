@@ -49,9 +49,11 @@ class PostCommentsController extends Controller
         //
         $input = $request->all();
         $user = Auth::user();
+        // dd($user->gravatar);
         $input['author'] = $user->name;
         $input['email'] = $user->email;
-        $input['photo'] = $user->photo?$user->photo->file:"";
+        // $input['photo'] = $user->photo?$user->photo->file:"";
+        $input['photo'] = $user->gravatar;
         Comment::create($input);
         $request->session()->flash('success', 'Comment registered successfully. Wait while the comment get approved');
         return redirect()->back();

@@ -6,10 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 
+use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
+
 class Post extends Model
 {
     //
-    use Sluggable;
+    use Sluggable,SluggableScopeHelpers;
 
     protected $fillable = [
         'category_id',
@@ -27,7 +29,8 @@ class Post extends Model
     {
         return [
             'slug' => [
-                'source' => 'title'
+                'source' => 'title',
+                'onUpdate'=>true
             ]
         ];
     }
