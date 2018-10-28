@@ -55,6 +55,7 @@ class AdminPostsController extends Controller
         //
         // return $request->all();
         //one
+        dd($request->file('photo_id'));
         $user = Auth::user();
         $input = $request->all();
         if($file = $request->file('photo_id'))

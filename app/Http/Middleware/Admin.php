@@ -17,6 +17,8 @@ class Admin
     public function handle($request, Closure $next)
     {
         if(Auth::check()) {
+            // dd(Auth::user());
+
             if(Auth::user()->checkRole('administrator') && Auth::user()->checkIsActive() ) {
                 return $next($request);
             }
