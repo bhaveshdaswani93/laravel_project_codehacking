@@ -12,20 +12,16 @@
 */
 use \Illuminate\Support\Facades\Auth;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
 
 // Route::auth();
 Auth::routes();
 Route::get('/logout','Auth\LoginController@logout');
 
 Route::get('/home', 'HomeController@index');
-Route::get('/post/{id}',['as'=>'home.post','uses'=>'AdminPostsController@post']);
+Route::get('/post/{id}',['as'=>'home.post','uses'=>'HomeController@post']);
 Route::group(['middleware'=>'admin','as'=>'admin.'],function(){
-    Route::get('/admin', function () {
-        return view('admin.index');
-    });
+    Route::get('/admin', 'AdminController@index');
     Route::post('admin/med/delete',[
         'as' => 'med.delete',
         'uses'=>'AdminMediaController@deleteMedia'
